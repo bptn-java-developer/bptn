@@ -5,11 +5,11 @@ import java.util.Scanner;
 class Month {
 		
 	// Converts the month number into the month name.
-	String printMonth(int month) {
+	String printMonth(int month1) {
 
 		String str = "";
 		
-		switch(month) {
+		switch(month1) {
 		case 0: 
 			str = "January";
 		    break;
