@@ -37,7 +37,7 @@ public class LinearSearch {
 	//                
 		int ind = -1;
 		
-		for (int i =0; i < a.length; i++ ) {
+		for (int i =0; i < a.length; i++ ) {  // O(n)
 			
 			if ( key == a[i] ) {
 				ind = i;

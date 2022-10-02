@@ -7,10 +7,22 @@ public class InsertionSort {
 	public static void main(String[] args) {
 
 	
+		for() {
+			if()
+				
+		}
+		
+		for() {
+			
+		}
+		
+		
+		
+		
 		//int[] a = { 8, 4, 0, 5, 9, 11, 2, 7 };
 		int[] a = { 2, 5, 7, 4, 0, 5, 9 };
 		
-		for ( int j = 1; j < a.length; j++ ) {
+		for ( int j = 1; j < a.length; j++ ) { //O(n)
 			
 			
 			int temp = a[j]; // value of the first element in the unsorted part of the array
@@ -26,7 +38,7 @@ public class InsertionSort {
 		   //possibleIndex |
 		   //temp => 7
 			            			
-			while ( possibleIndex>0 && temp < a[possibleIndex-1] ) {
+			while ( possibleIndex>0 && temp < a[possibleIndex-1] ) { //O(n)
 				a[possibleIndex] = a[possibleIndex -1];
 				possibleIndex--;
 			}

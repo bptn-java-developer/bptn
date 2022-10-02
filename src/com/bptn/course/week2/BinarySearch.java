@@ -9,9 +9,12 @@ public class BinarySearch {
 		int[] a = { 2, 3, 5, 9, 12, 15 };
 		//          0  1  2  3   4   5
 		
-		int ind = search(a,key);		
+		int ind = search(a,key); // log(n)		
 		System.out.println("Index: " + ind);
 		
+		for() { //O(n)
+			
+		}
 		// Search Strings
 		
 		
