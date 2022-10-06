@@ -9,26 +9,32 @@ public class BinarySearch {
 		int[] a = { 2, 3, 5, 9, 12, 15 };
 		//          0  1  2  3   4   5
 		
-		int ind = search(a,key); // log(n)		
+		BinarySearch obj = new BinarySearch();
+		int ind = obj.search(a,key); // log(n)		
+		System.out.println("Index: " + ind);
+
+		key = 11;
+		int[] b = { 2, 4, 5, 19, 12, 150 };
+		//          0  1  2  3   4   5
+		
+		ind = obj.search(b,key); // log(n)		
 		System.out.println("Index: " + ind);
 		
-		for() { //O(n)
+		/*for() { //O(n)
 			
-		}
+		}*/
 		// Search Strings
 		
 		
 		String str = "pineapple"; 
-		String[] b = {"apple","banana","cherry","kiwi","melon"};
+		String[] c = {"apple","banana","cherry","kiwi","melon"};
 		
-		ind = searchString(b, str);		
+		ind = searchString(c, str);		
 		System.out.println("Index: " + ind);
 		
 	}
 	
-	
-
-	public static int search(int a[], int key) {
+	public int search(int a[], int key) {
 		
 		
 		int left = 0;   // left index

@@ -6,18 +6,7 @@ public class InsertionSort {
 
 	public static void main(String[] args) {
 
-	
-		for() {
-			if()
-				
-		}
-		
-		for() {
 			
-		}
-		
-		
-		
 		
 		//int[] a = { 8, 4, 0, 5, 9, 11, 2, 7 };
 		int[] a = { 2, 5, 7, 4, 0, 5, 9 };
