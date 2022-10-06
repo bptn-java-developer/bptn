@@ -76,7 +76,7 @@ public class ExceptionExample {
 		
 	}
 
-	void processSomething2() throws MyException2 { // We do need the throws because MyException is Checked
+	void processSomething2() throws MyException2 { // We do need the throws because MyException2 is Checked
 		
 		double value = 0; //Cannot be Zero, if it's Zero it's because sth very bad is happening
 		
@@ -88,7 +88,7 @@ public class ExceptionExample {
 		
 		if (value < 0) {
 			//throw new ArithmeticException("hahahah");
-			throw new MyException("The calculated value was Negative: " + value);
+			throw new MyException2("The calculated value was Negative: " + value);
 		}		
 		
 	}
