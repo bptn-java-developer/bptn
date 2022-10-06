@@ -12,7 +12,13 @@ class Class1{
 	}
 	
 	void method2() {
-		this.method3();
+		
+		try {
+			this.method3();
+		} catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+		}
 	}
 	
 	void method3() {
@@ -22,11 +28,7 @@ class Class1{
 	void method4() {
 		System.out.println("Hello");
 		
-		Object[] stack= Thread.currentThread().getStackTrace();
-		
-		for(Object obj: stack) {
-			System.out.println(obj);
-		}
+		int a = 5/0;
 	}
 
 }
@@ -38,7 +40,11 @@ public class StackMemory {
 
 		Class1 obj = new Class1();
 		
-		obj.method1();
+		//try {
+			obj.method1();
+		//} catch (Exception e) {
+        //    System.out.println(e.getMessage());
+		//} 
 	}
 
 }

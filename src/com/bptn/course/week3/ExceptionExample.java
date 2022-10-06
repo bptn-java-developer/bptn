@@ -85,7 +85,11 @@ public class ExceptionExample {
 		int a = 0;
 		try {
 			
-			file = File.open("testfile.txt"); // Open the file
+			try {
+				file = File.open("testfile.txt"); // Open the file				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 			
 			while ((line = File.read(file))!=null) { // Read the file until there are no more lines to read.
 				System.out.println(line);
@@ -113,7 +117,14 @@ public class ExceptionExample {
 		} catch (Exception e) { //Checked
 			e.printStackTrace();
 		} finally {
-			File.close(file);			
+			//File.close(file);	
+			
+			try {
+				file.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
 		}
 	} 
 			
