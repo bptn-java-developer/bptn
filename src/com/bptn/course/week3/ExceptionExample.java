@@ -3,6 +3,7 @@ package com.bptn.course.week3;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 public class ExceptionExample {
 
@@ -57,22 +58,91 @@ public class ExceptionExample {
 	}
 	
 	
-	void processFile() throws IOException {
+	/*
+	 * If we don't want to handle the exception in the method,
+	 * we can throw it up to the caller using the throws keyword.
+	 */
+	void processFile() throws FileNotFoundException, IOException  {
 		
 		BufferedReader file = null;
 		String line = null;
 		
 			
-			file = File.open("testfile.txt",true); // Open the file
+		file = File.open("testfile.txt",true); // Open the file
+			
+		while ((line = File.read(file))!=null) { // Read the file until there are no more lines to read.
+			System.out.println(line);
+		}
+			
+		File.close(file);
+	}
+
+	void processFile2() {
+		
+		BufferedReader file = null;
+		String line = null;
+		
+		int a = 0;
+		try {
+			
+			file = File.open("testfile.txt"); // Open the file
 			
 			while ((line = File.read(file))!=null) { // Read the file until there are no more lines to read.
 				System.out.println(line);
 			}
 			
-			File.close(file);
+			//a = 5/0;
+			
+		/*	
+		} catch (ArithmeticException e) { // Unchecked
+			a = -1;
+			e.printStackTrace();*/	
+		/*
+		 * We can indicate that we need two different exceptions to share the same catch block
+		 * 
+		 * || -> OR Operator 
+		 * | -> Tw
+		 */
+		} catch (final ArithmeticException | 
+				       FileNotFoundException | 
+				       IndexOutOfBoundsException ex) { //Checked
+			
+			ex.printStackTrace();
+		} catch (IOException e) { //Checked
+			e.printStackTrace();
+		} catch (Exception e) { //Checked
+			e.printStackTrace();
+		} finally {
+			File.close(file);			
+		}
+	} 
+			
+
+void processFile3() {
+	
+	BufferedReader file = null;
+	String line = null;
+	
+	int a = 0;
+	try {		
+		file = File.open("testfile.txt",true); // Open the file		
 		
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();	
 	}
 	
+	try {
+		
+		while ((line = File.read(file))!=null) { // Read the file until there are no more lines to read.
+			System.out.println(line);
+		}
+		
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+
+} 
+		
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -80,12 +150,11 @@ public class ExceptionExample {
 		ExceptionExample obj = new ExceptionExample();
 		
 		//obj.divide();
-		try {
-			obj.processFile();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+
+		obj.processFile2();
+
+
 	}
 
 }

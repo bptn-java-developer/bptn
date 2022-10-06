@@ -86,6 +86,8 @@ class Person {
 	
 	void display(String str) {
 		//this.display();
+		
+		str= "BPTN";
 		System.out.println("String: " + str);
 	}
 }
