@@ -1,6 +1,5 @@
 package com.bptn.course.week4.tuesday;
 
-
 /*
  * A Java Interface is like a contract that must be accomplished 
  * by the class or classes that implement the interface.
@@ -9,6 +8,8 @@ package com.bptn.course.week4.tuesday;
  * All my interface's methods are "public abstract" by default.  
  */
 interface MyInterface {
+	
+	int data = 0; // Attributes in interfaces are public static final by default.
 	
 	void doSomething();
 	
@@ -49,7 +50,7 @@ class Child extends Parent1, Parent2{
 	
 }*/
 
-class MyClass implements MyInterface, MyInterfaceA {
+class MyClass implements MyInterfaceA {
 
 	String myAtrribute;
 	
@@ -99,6 +100,8 @@ public class InterfaceExample {
 	public static void main(String[] args) {
 
 		MyClass.newDisplay2();
+		
+		System.out.println(MyClass.data);
 	}
 
 }
