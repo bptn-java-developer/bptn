@@ -34,6 +34,14 @@ class MyThread extends Thread {
 	}
 		
 }
+
+class SimpleThread extends Thread {
+	
+	@Override
+	public void run() {				
+		System.out.println("Hello Simple Thread!!!");
+	}
+}
 	
 	
 	
@@ -63,6 +71,9 @@ public class ThreadExample {
 		System.out.println("T1 state: " + t1.getState());
 		System.out.println("T2 state: " + t2.getState());
 		System.out.println("T3 state: " + t3.getState());
+
+		SimpleThread simple = new SimpleThread();
+		simple.start();
 		
 	}
 

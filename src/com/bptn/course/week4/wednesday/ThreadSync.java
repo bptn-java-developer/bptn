@@ -7,25 +7,28 @@ import java.util.concurrent.CopyOnWriteArrayList;
 class Id {
 	
 	
-	public static synchronized void insertNextId(List<Integer> list) {
+	public static void insertNextId(List<Integer> list) {
 		
 		int max = 0;
 		
 		// 1. find the maximum id in the list.
 		
-		for (int id: list) {
-			if (id > max) {
-				max = id;
+		synchronized(list) {
+			
+			for (int id: list) {
+				if (id > max) {
+					max = id;
+				}
 			}
+			
+			// max = 8
+			
+			// max = max + 1;
+			
+			// 2. Increase the maximun id by 1 unit 
+			//    and add it to the list
+			list.add(++max); // max = 9 pre-increment 
 		}
-		
-		// max = 8
-		
-		// max = max + 1;
-		
-		// 2. Increase the maximun id by 1 unit 
-		//    and add it to the list
-		list.add(++max); // max = 9 pre-increment 
 		
 		// max = 8
 		
