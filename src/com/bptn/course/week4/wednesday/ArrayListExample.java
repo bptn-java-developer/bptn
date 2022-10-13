@@ -1,11 +1,16 @@
 package com.bptn.course.week4.wednesday;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
 
 
-class Person{
+class Person implements Serializable {
+	
+	private static final long serialVersionUID = -8718481362300068738L;
 	
 	String name;
 	int age;
@@ -69,6 +74,23 @@ public class ArrayListExample {
 	public static void main(String[] args) {
 
 		
+		// Sets don't keep the insertion order.
+		// Set keeps only unique values
+		// LinkedHashSet keeps the insertion order.
+		// TreeSet sorts the elements of the set.
+		Set<String> set = new TreeSet<>();
+		
+		
+		set.add("John");
+		set.add("Jane");
+		set.add("Jane");
+		set.add("Mike");
+		set.add("Pete");
+
+		set.forEach(System.out::println);
+		
+		System.exit(0);
+		
 		List<Person> persons = new ArrayList<>();
 		
 		Person p1 = new Person("John",30);
@@ -83,7 +105,6 @@ public class ArrayListExample {
 		
 		System.out.println(persons);
 		
-		System.exit(0);
 		
 		
 		
@@ -97,6 +118,8 @@ public class ArrayListExample {
 		list.add("Jane");
 		list.add("Mike");
 		list.add("Pete");
+
+
 		
 		// ["John","Jane","Mike","Pete"]
 		//    0       1      2      3
