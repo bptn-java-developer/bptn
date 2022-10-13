@@ -2,6 +2,7 @@ package com.bptn.course.week4.wednesday;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 class Person{
@@ -9,16 +10,88 @@ class Person{
 	String name;
 	int age;
 	
+	
+	public Person(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
+
+	
+	/*
+	 * It's important to create the hashCode() and the equals() method
+	 * in your Customized Java Class especially when you use it with 
+	 * Java Collections. 
+	 * 
+	 * equals() method
+	 * When this equals() method is missing, some methods of the collections 
+	 * will use the variable reference instead of the actual values 
+	 * (weird behaviour, like for example an object is not found but we are 
+	 * sure the object is the collection.
+	 *  
+	 * hashCode()
+	 * 
+	 * The hashCode() method is used by collections that use the hash algorithm 
+	 * internally. For example: HashMap, HashSet, Hashtable, and others.
+	 * 
+	 */
+	@Override
+	public int hashCode() {
+		return Objects.hash(name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return Objects.equals(name, other.name);
+	}
+
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + "]";
+	}
+	
+	
+	
 }
 
 public class ArrayListExample {
+
 
 	
 	
 	public static void main(String[] args) {
 
+		
+		List<Person> persons = new ArrayList<>();
+		
+		Person p1 = new Person("John",30);
+		//Person p2 = new Person("John",30);
+		
+		persons.add(p1);
+		
+		// I am searching for a Person with name="John: and age="30"
+		int index = persons.indexOf(new Person("John",29));
+		
+		System.out.println("Index: " + index);
+		
+		System.out.println(persons);
+		
+		System.exit(0);
+		
+		
+		
+		
 		//Create a list of Strings
 		List<String> list = new ArrayList<>();
+		
+		String s1 = "Jane";
 		
 		list.add("John");
 		list.add("Jane");
@@ -32,7 +105,7 @@ public class ArrayListExample {
 		
 		System.out.println("The element at index=2: " + list.get(2));
 
-		System.out.println("The index of Jane is : " + list.indexOf("Jane"));
+		System.out.println("The index of Jane is : " + list.indexOf(new String("Jane")));
 		
 		// Prints out all the elements of the list with for loop
 //		for (int i=0; i < list.size(); i++) {
